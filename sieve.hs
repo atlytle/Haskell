@@ -4,10 +4,13 @@ sieve [] = []
 sieve (1:xs) = sieve xs  -- Remove 1.
 sieve (x:xs) = x:(sieve [w | w <- xs, (w `mod` x) /= 0])
 
-sums :: Int -> Int -> [(Int, Int)]
+primeSums :: Int  -> [(Int, Int)]
 --
-sums max n = [(x, y) | x <- [2..max], y <- [2..max], x+y == n]
+primeSums n = [(x, y) | x <- sieve [2..n], y <- sieve [2..n], x+y == n]
 
---remove st x <- primes and y <- primes
+candidate :: Int -> Int
+candidate n 
+    | primeSums n == [] = n
+    | primeSums n /= [] = 0
 
---[x | x <- tuples, fst x <- primes, snd x <- primes]
+--filter (/=0) (map candidate [4..40])
