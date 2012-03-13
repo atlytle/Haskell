@@ -25,12 +25,11 @@ map' f (x:xs) = f x : map' f xs
 
 seeNsay :: (Num a) => [a] -> [a]
 -- 
-seeNsay x = concat $ map (\w -> [fromIntegral $ length w, head w]) $ group x
-
-f :: (a, b) -> a
-f (a, b) = a
+seeNsay x = concatMap (\w -> [fromIntegral $ length w, head w]) $ group x
 
 length' :: [a] -> Integer
 --
 length' [] = 0
 length' (x:xs) = 1 + length' xs
+
+data Blah a = Blah a | Nada deriving (Show)

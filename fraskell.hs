@@ -50,3 +50,7 @@ display :: Bool -> Char
 display False = ' '  -- use guards?
 display True = '*'
 
+grid :: Double -> Double -> Double -> Double -> Double ->[[Complex]]
+--
+grid x0 y0 xr yr res = [[Complex x y | x<-[x0-xr, x0-xr+res..x0+xr]] | y<-[y0-yr, y0-yr+res..y0+yr]]
+

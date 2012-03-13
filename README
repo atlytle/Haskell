@@ -1,1 +1,2 @@
 fraskell.hs - Computes points in the Mandelbrot set.
+sieve.hs - Prime sieve and solution to "impossible problem."
